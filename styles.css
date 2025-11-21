@@ -22,19 +22,22 @@ body {
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    padding: 30px;
+    padding: 20px;
     max-width: 900px;
     width: 100%;
     position: relative;
     overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* 游戏标题 */
 .game-title {
     text-align: center;
     color: #ff6b6b;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
+    font-size: 2rem;
+    margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     letter-spacing: 1px;
 }
@@ -56,7 +59,12 @@ body {
 /* 开始屏幕 */
 #start-screen {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
 }
 
 #start-screen h2 {
@@ -83,8 +91,8 @@ body {
 button {
     border: none;
     border-radius: 50px;
-    padding: 12px 24px;
-    font-size: 1.2rem;
+    padding: 10px 20px;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: bold;
@@ -156,15 +164,15 @@ button:active {
 /* 问题区域 */
 .question-area {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .math-question {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
     color: #4a6fa5;
-    margin-bottom: 20px;
-    padding: 20px;
+    margin-bottom: 15px;
+    padding: 15px;
     background-color: #f0f7ff;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -179,9 +187,9 @@ button:active {
 }
 
 #answer {
-    width: 150px;
-    padding: 15px;
-    font-size: 1.5rem;
+    width: 120px;
+    padding: 12px;
+    font-size: 1.3rem;
     text-align: center;
     border: 3px solid #ddd;
     border-radius: 10px;
@@ -206,11 +214,11 @@ button:active {
 /* 消息提示区域 */
 .message-area {
     text-align: center;
-    min-height: 50px;
-    margin-bottom: 20px;
-    padding: 15px;
+    min-height: 40px;
+    margin-bottom: 15px;
+    padding: 12px;
     border-radius: 10px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     transition: all 0.3s ease;
 }
@@ -269,8 +277,8 @@ button:active {
 /* 苹果样式 */
 .apple {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     background-color: #ff3b30;
     border-radius: 50%;
     animation: appleGrow 0.5s ease-out;
@@ -301,24 +309,24 @@ button:active {
 /* 毛毛虫样式 */
 .caterpillar {
     position: absolute;
-    width: 60px;
-    height: 20px;
+    width: 50px;
+    height: 18px;
     display: flex;
     align-items: center;
     animation: caterpillarMove 2s ease-in-out infinite alternate;
 }
 
 .caterpillar-body {
-    width: 15px;
-    height: 15px;
+    width: 13px;
+    height: 13px;
     background-color: #8bc34a;
     border-radius: 50%;
     margin: 0 -2px;
 }
 
 .caterpillar-head {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     background-color: #8bc34a;
     border-radius: 50%;
     position: relative;
@@ -365,25 +373,25 @@ button:active {
 /* 结束屏幕 */
 #end-screen {
     text-align: center;
-    padding: 30px;
+    padding: 20px;
 }
 
 #game-result {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
+    font-size: 2rem;
+    margin-bottom: 20px;
     color: #ff6b6b;
 }
 
 .final-stats {
     background-color: #f0f7ff;
-    padding: 20px;
+    padding: 15px;
     border-radius: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .final-stats p {
-    font-size: 1.3rem;
-    margin: 10px 0;
+    font-size: 1.1rem;
+    margin: 8px 0;
     color: #4a6fa5;
 }
 
@@ -405,7 +413,7 @@ button:active {
 
 /* 暂停屏幕 */
 #pause-screen {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -416,7 +424,7 @@ button:active {
     justify-content: center;
     align-items: center;
     color: white;
-    padding: 20px;
+    padding: 15px;
     z-index: 100;
     transition: opacity 0.3s ease;
     opacity: 0;
@@ -469,39 +477,21 @@ button:active {
     }
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .game-title {
-        font-size: 2rem;
+/* 确保在移动设备上可以滚动 */
+@media (max-height: 600px) {
+    body {
+        padding: 10px;
     }
     
-    .math-question {
-        font-size: 2.5rem;
-    }
-    
-    .game-info {
-        flex-direction: column;
-    }
-    
-    .tree-canopy {
-        width: 250px;
-        height: 250px;
-    }
-    
-    .apple-tree-container {
-        height: 350px;
-    }
-    
-    #answer {
-        width: 120px;
+    .game-container {
+        min-height: auto;
+        max-height: 100vh;
+        overflow-y: auto;
     }
 }
 
-@media (max-width: 480px) {
-    .game-container {
-        padding: 20px;
-    }
-    
+/* 响应式设计 */
+@media (max-width: 768px) {
     .game-title {
         font-size: 1.8rem;
     }
@@ -510,17 +500,143 @@ button:active {
         font-size: 2rem;
     }
     
+    .game-info {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+    
+    .game-info > div {
+        font-size: 1rem;
+    }
+    
     .tree-canopy {
-        width: 200px;
-        height: 200px;
+        width: 220px;
+        height: 220px;
     }
     
     .apple-tree-container {
-        height: 300px;
+        height: 320px;
+    }
+    
+    #answer {
+        width: 100px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* 针对非常小的屏幕进一步优化 */
+    body {
+        padding: 5px;
+        font-size: 14px;
+    }
+    
+    /* 苹果和毛毛虫进一步缩小 */
+    .apple {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .apple::before {
+        width: 8px;
+        height: 12px;
+        top: -8px;
+        left: 10px;
+    }
+    
+    .apple::after {
+        width: 4px;
+        height: 4px;
+    }
+    
+    .caterpillar {
+        width: 40px;
+        height: 15px;
+    }
+    
+    .caterpillar-body {
+        width: 11px;
+        height: 11px;
+    }
+    
+    .caterpillar-head {
+        width: 13px;
+        height: 13px;
+    }
+    
+    .caterpillar-head::before,
+    .caterpillar-head::after {
+        width: 6px;
+        height: 2px;
+    }
+    .game-container {
+        padding: 15px;
+        border-radius: 15px;
+    }
+    
+    .game-title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    #start-screen h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+    
+    .difficulty-selection h3 {
+        font-size: 1.3rem;
+    }
+    
+    .difficulty-buttons {
+        gap: 15px;
+    }
+    
+    .difficulty-btn {
+        padding: 12px 20px;
+        min-width: 150px;
+    }
+    
+    .math-question {
+        font-size: 1.8rem;
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .tree-canopy {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .apple-tree-container {
+        height: 280px;
+        margin: 20px 0;
     }
     
     button {
-        padding: 10px 20px;
+        padding: 10px 18px;
         font-size: 1rem;
+    }
+    
+    .game-controls {
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    #answer {
+        width: 90px;
+        padding: 10px;
+        font-size: 1.1rem;
+    }
+    
+    #pause-screen h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    #pause-screen .control-btn {
+        min-width: 130px;
+        margin: 8px;
     }
 }
